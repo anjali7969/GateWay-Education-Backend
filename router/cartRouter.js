@@ -10,3 +10,4 @@ router.delete("/remove/:courseId", protect, removeCartItem); // ✅ Remove Item 
 router.delete("/clear", protect, clearCart); // ✅ Clear Entire Cart
 
 module.exports = router;
+
