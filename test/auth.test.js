@@ -64,3 +64,66 @@
 //         }
 //     });
 // });
+
+
+
+const chai = require("chai");
+const chaiHttp = require("chai-http");
+const app = require("../index"); // Adjust path if needed
+const { expect } = chai;
+
+chai.use(chaiHttp);
+
+describe("User API Tests", () => {
+    let userToken = "";
+    let userId = "";
+    let userEmail = `test${Date.now()}@example.com`; // Generate a unique email
+    let userPassword = "password123"; // Define the password once
+
+    /**
+     * ✅ Step 1: Register a New User
+     */
+    it("should register a new user", async function () {
+        this.timeout(5000);
+        const res = await chai.request(app)
+            .post("/auth/register")
+            .send({
+                name: "Test User",
+                email: userEmail, // Use generated email
+                password: userPassword, // Use defined password
+                phone: "9876543211",
+                role: "Student"
+            });
+
+        expect(res).to.have.status(201);
+        expect(res.body).to.have.property("message", "User registered successfully");
+        expect(res.body).to.have.property("token");
+        expect(res.body).to.have.property("user");
+
+        userToken = res.body.token; // Store the token for authentication
+        userId = res.body.user._id; // Store the user ID
+    });
+
+    /**
+     * ✅ Step 2: Login User to Get Token (Using Registered Credentials)
+     */
+    it("should log in the user and return a JWT token", async function () {
+        this.timeout(5000);
+        const res = await chai.request(app)
+            .post("/auth/login")
+            .send({
+                email: userEmail, // Use registered email
+                password: userPassword // Use registered password
+            });
+
+        expect(res).to.have.status(200);
+        expect(res.body).to.have.property("token");
+        expect(res.body).to.have.property("user");
+
+        userToken = res.body.token; // Update token (though it's already stored from register)
+        userId = res.body.user._id;
+    });
+
+
+
+});

@@ -9,6 +9,7 @@ const authRouter = require("./router/authRouter");
 const cartRouter = require("./router/cartRouter");
 const wishlistRouter = require("./router/wishlistRouter");
 const orderRouter = require("./router/orderRouter");
+const enrollmentRouter = require("./router/enrollmentRouter");
 const paymentRouter = require("./router/paymentRouter"); // ✅ Import Payments Router
 
 const app = express();
@@ -39,6 +40,7 @@ app.use("/cart", cartRouter);
 app.use("/wishlist", wishlistRouter);
 app.use("/order", orderRouter);
 app.use("/payment", paymentRouter);
+app.use("/enrollment", enrollmentRouter);
 
 // ✅ Error Handling Middleware (Catches Unhandled Errors)
 app.use((err, req, res, next) => {
