@@ -55,8 +55,6 @@ const removeFromWishlist = async (req, res) => {
     }
 };
 
-
-
 // ✅ Get User Wishlist
 const getWishlist = async (req, res) => {
     try {

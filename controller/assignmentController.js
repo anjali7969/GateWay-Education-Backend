@@ -1,6 +1,6 @@
 const Assignment = require('../models/Assignment');
 
-// Create a New Assignment
+// ✅ Create a New Assignment
 const createAssignment = async (req, res) => {
     const { course, title, dueDate } = req.body;
 

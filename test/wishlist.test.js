@@ -12,14 +12,14 @@ describe("📌 Wishlist API Tests", () => {
     let wishlistId = "";
 
     /**
-     * ✅ Step 1: User Login to Get Token (Required for Wishlist Operations)
+     * ✅ Step 1: User Login to Get Token (Required for Wishlist Operations) 
      */
     it("should log in the user and return a JWT token", async function () {
         this.timeout(5000);
         const res = await chai.request(app)
             .post("/auth/login")
             .send({
-                email: "anjali@gmail.com",  // Ensure this user exists
+                email: "anjali@gmail.com",  // Ensure this user exists 
                 password: "12345678"
             });
 

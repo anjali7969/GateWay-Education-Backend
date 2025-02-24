@@ -42,7 +42,7 @@ const enrollUser = async (req, res) => {
     }
 };
 
-// ✅ Get All Enrollments
+// ✅ Get All Enrollments // ✅ Populate User and Course Details
 const getAllEnrollments = async (req, res) => {
     try {
         const enrollments = await Enrollment.find()

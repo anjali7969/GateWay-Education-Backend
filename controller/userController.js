@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const asyncHandler = require('express-async-handler'); // Import asyncHandler
 
-// Add a new user (Admin, Student)
+// Add a new user (Admin, Student) // Register a new user (Student, Admin)
 const postData = asyncHandler(async (req, res) => {
     try {
         const { name, email, password, phone, role } = req.body;

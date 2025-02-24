@@ -5,7 +5,7 @@ const asyncHandler = require("express-async-handler");
 require('dotenv').config();
 const WelcomeEmail = require('../templets/WelcomeEmail');
 
-
+// Import mailer
 const transporter = require('../middlewares/mailConfig');
 
 // Generate JWT Token
@@ -68,7 +68,7 @@ const registerUser = async (req, res) => {
 };
 
 
-// Login user (Student, Admin)
+// Login user (Student, Admin) 
 const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;

@@ -73,11 +73,6 @@ const addToCart = async (req, res) => {
 };
 
 
-
-
-
-
-
 // ✅ Get user cart
 const getCartItems = async (req, res) => {
     try {

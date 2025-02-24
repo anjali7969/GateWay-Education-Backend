@@ -51,7 +51,7 @@ const confirmOrder = asyncHandler(async (req, res) => {
     }
 });
 
-// ✅ Get Orders for a User
+// ✅ Get Orders for a User // ✅ Populate Course Details
 const getUserOrders = asyncHandler(async (req, res) => {
     try {
         const userId = req.user.id;
