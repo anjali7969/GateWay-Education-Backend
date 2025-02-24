@@ -11,7 +11,7 @@ const {
     getCourseById,
 } = require('../controller/courseController');
 
-// const { protect, isTeacher, isStudent } = require('../middleware/authMiddleware');
+// const { protect, isStudent } = require('../middleware/authMiddleware');
 
 const router = express.Router();
 

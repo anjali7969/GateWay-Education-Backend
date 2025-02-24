@@ -5,14 +5,15 @@ const asyncHandler = require("express-async-handler");
 // ✅ Confirm Order (Create a New Order)
 const confirmOrder = asyncHandler(async (req, res) => {
     try {
-        const { cart, paymentMethod, city, address, phoneNumber } = req.body;
+        const { cart, paymentMethod, phoneNumber } = req.body;  //city, address, remove the city and address
+
         const userId = req.user.id;
 
         // ✅ Validate Inputs
         if (!cart || cart.length === 0) {
             return res.status(400).json({ message: "Cart cannot be empty" });
         }
-        if (!paymentMethod || !city || !address || !phoneNumber) {
+        if (!paymentMethod || !phoneNumber) { // remove || !city || !address
             return res.status(400).json({ message: "All fields are required" });
         }
 
@@ -31,10 +32,10 @@ const confirmOrder = asyncHandler(async (req, res) => {
             cart,
             totalAmount,
             paymentMethod,
-            city,
-            address,
+            // city,
+            // address,
             phoneNumber,
-            status: "Pending",
+            status: "pending",
         });
 
         await newOrder.save();

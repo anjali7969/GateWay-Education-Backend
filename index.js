@@ -11,9 +11,6 @@ const wishlistRouter = require("./router/wishlistRouter");
 const orderRouter = require("./router/orderRouter");
 const paymentRouter = require("./router/paymentRouter"); // ✅ Import Payments Router
 
-
-
-
 const app = express();
 
 // ✅ Connect Database
@@ -43,16 +40,15 @@ app.use("/wishlist", wishlistRouter);
 app.use("/order", orderRouter);
 app.use("/payment", paymentRouter);
 
-
 // ✅ Error Handling Middleware (Catches Unhandled Errors)
 app.use((err, req, res, next) => {
     console.error(`[${new Date().toISOString()}] ❌ Error:`, err.message);
     res.status(500).json({ message: "Internal Server Error", error: err.message });
 });
 
-// ✅ Start the Server
+// ✅ Start the Server and Export the Server Instance
 const PORT = 5003;
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`🚀 Server started at port ${PORT}`);
 });
 
@@ -61,3 +57,5 @@ process.on("unhandledRejection", (err, promise) => {
     console.error(`[${new Date().toISOString()}] ❌ Unhandled Promise Rejection: ${err.message}`);
     process.exit(1); // Exit with failure
 });
+
+module.exports = server;

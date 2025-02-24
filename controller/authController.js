@@ -3,7 +3,10 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const asyncHandler = require("express-async-handler");
 require('dotenv').config();
+const WelcomeEmail = require('../templets/WelcomeEmail');
 
+
+const transporter = require('../middlewares/mailConfig');
 
 // Generate JWT Token
 const generateToken = (user) => {
@@ -14,7 +17,7 @@ const generateToken = (user) => {
     );
 };
 
-// Register a new user (Student, Instructor, Admin)
+// Register a new user (Student, Admin)
 const registerUser = async (req, res) => {
     try {
         console.log("Received signup request:", req.body);
@@ -41,6 +44,15 @@ const registerUser = async (req, res) => {
         });
 
         const token = generateToken(user);
+
+        // Send registration email
+        const mailOptions = {
+            from: process.env.EMAIL_USER,
+            to: user.email,
+            subject: "Registration Successful. Welcome!",
+            html: WelcomeEmail({ name: user.name }),
+        };
+        await transporter.sendMail(mailOptions);
 
         res.status(201).json({
             success: true,
@@ -86,10 +98,6 @@ const loginUser = async (req, res) => {
         res.status(500).json({ message: "Server error" });
     }
 };
-
-
-
-
 
 
 // ✅ Get Current Logged-in User

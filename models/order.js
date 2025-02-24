@@ -26,14 +26,14 @@ const OrderSchema = new mongoose.Schema(
             enum: ["Card Payment", "PayPal Payment"],
             required: true
         },
-        city: {
-            type: String,
-            required: true
-        },
-        address: {
-            type: String,
-            required: true
-        },
+        // city: {
+        //     type: String,
+        //     required: true
+        // },
+        // address: {
+        //     type: String,
+        //     required: true
+        // },
         phoneNumber: {
             type: String,
             required: true,
