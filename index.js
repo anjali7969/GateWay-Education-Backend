@@ -14,7 +14,7 @@ const paymentRouter = require("./router/paymentRouter"); // ✅ Import Payments 
 
 
 const app = express();
-
+//this is the index.js
 // ✅ Connect Database
 connectDB();
 
