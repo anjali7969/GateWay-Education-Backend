@@ -84,3 +84,5 @@ const ResetPasswordEmail = ({ email, resetLink }) => `
 `;
 
 module.exports = ResetPasswordEmail;
+// Path: templets/WelcomeEmail.js
+// Compare this snippet from models/user.js:

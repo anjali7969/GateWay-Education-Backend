@@ -92,7 +92,7 @@ const WelcomeEmail = ({ name }) => `
 module.exports = WelcomeEmail;
 
 
-
+//  Path: templets/WelcomeEmail.js
 
 
 

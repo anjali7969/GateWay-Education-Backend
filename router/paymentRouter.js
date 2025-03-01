@@ -13,3 +13,4 @@ router.get("/checkout/:orderId", async (req, res) => {
 });
 
 module.exports = router;
+// ✅ Created a new route to handle payment checkout and redirect to the payment gateway.
