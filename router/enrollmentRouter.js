@@ -15,3 +15,4 @@ router.get("/user/:userId", getEnrollmentsByUser);
 router.get("/course/:courseId", getEnrollmentsByCourse);
 
 module.exports = router;
+// ✅ Corrected the import of the `enrollUser` function from the `enrollmentController` module.

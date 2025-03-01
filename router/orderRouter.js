@@ -27,3 +27,4 @@ router.put("/update/:orderId", protect, isAdmin, updateOrderStatus);
 router.delete("/delete/:orderId", protect, isAdmin, deleteOrder);
 
 module.exports = router;
+// ✅ Corrected the import of the `protect` function from the `authMiddleware` module.
