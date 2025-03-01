@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema(
         password: { type: String, required: true, select: false }, // Exclude password in queries
         phone: { type: String, required: true },
         role: { type: String, enum: ["Admin", "Student"], default: "Student" }, // Role field
-        profilePicture: { type: String, default: "" }, // Profile picture field
+        // profilePicture: { type: String, default: "" }, // Profile picture field
         resetPasswordToken: String,
         resetPasswordExpire: Date,
     },

@@ -1,5 +1,7 @@
 const User = require('../models/user');
 const asyncHandler = require('express-async-handler'); // Import asyncHandler
+const bcrypt = require("bcrypt");
+
 
 // Add a new user (Admin, Student) // Register a new user (Student, Admin)
 const postData = asyncHandler(async (req, res) => {
@@ -61,6 +63,56 @@ const updateByID = asyncHandler(async (req, res) => {
     }
 });
 
+// ✅ Update user details (Name, Email) - Users can update their own profile
+// const updateUserProfile = asyncHandler(async (req, res) => {
+//     try {
+//         const { id } = req.params;
+//         const { name, email } = req.body;
+
+//         const updatedUser = await User.findByIdAndUpdate(id, { name, email }, { new: true, runValidators: true }).select("-password");
+
+//         if (!updatedUser) {
+//             return res.status(404).json({ message: 'User not found' });
+//         }
+
+//         res.status(200).json({ message: "Profile updated successfully", updatedUser });
+//     } catch (error) {
+//         res.status(500).json({ error: error.message });
+//     }
+// });
+
+// ✅ Change user password (Current password required)
+const changeUserPassword = asyncHandler(async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { password } = req.body;
+
+        if (!password) {
+            return res.status(400).json({ message: "Password is required" });
+        }
+
+        // ✅ Hash the new password before saving
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+
+        const updatedUser = await User.findByIdAndUpdate(
+            id,
+            { password: hashedPassword }, // ✅ Store hashed password
+            { new: true }
+        );
+
+        if (!updatedUser) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        res.status(200).json({ message: "Password updated successfully" });
+    } catch (error) {
+        console.error("❌ Error changing password:", error);
+        res.status(500).json({ error: error.message });
+    }
+});
+
+
 // Delete a user by ID (Admins can delete any user, Teachers and Students can delete only their own account)
 const deleteData = asyncHandler(async (req, res) => {
     try {
@@ -91,4 +143,4 @@ const uploadImage = asyncHandler(async (req, res) => {
 });
 
 // Export all functions
-module.exports = { postData, getData, getByID, updateByID, deleteData, uploadImage };
+module.exports = { postData, getData, getByID, updateByID, changeUserPassword, deleteData, uploadImage };

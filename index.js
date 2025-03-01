@@ -12,6 +12,7 @@ const orderRouter = require("./router/orderRouter");
 const enrollmentRouter = require("./router/enrollmentRouter");
 const paymentRouter = require("./router/paymentRouter"); // ✅ Import Payments Router
 
+
 const app = express();
 
 // ✅ Connect Database
@@ -41,6 +42,7 @@ app.use("/wishlist", wishlistRouter);
 app.use("/order", orderRouter);
 app.use("/payment", paymentRouter);
 app.use("/enrollment", enrollmentRouter);
+
 
 // ✅ Error Handling Middleware (Catches Unhandled Errors)
 app.use((err, req, res, next) => {
