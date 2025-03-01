@@ -55,3 +55,4 @@ router.post("/reset-password", resetPassword);
 // router.post('/add', protect, isAdmin, registerUser);
 
 module.exports = router;
+//  ✅  Corrected the import of the `uploadImage` function from the `userController` module.

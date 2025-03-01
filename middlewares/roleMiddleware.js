@@ -25,4 +25,4 @@ const isStudent = (req, res, next) => {
 
 
 
-module.exports = { isAdmin, isStudent };
+module.exports = { isAdmin, isStudent }; // Export the middleware functions for use in routes

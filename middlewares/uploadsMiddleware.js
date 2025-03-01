@@ -78,3 +78,4 @@ const upload = multer({
 }).single("profilePicture");
 
 module.exports = upload;
+//  Compare this snippet from router/userRouter.js:
