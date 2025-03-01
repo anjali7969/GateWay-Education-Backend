@@ -20,7 +20,7 @@ connectDB();
 
 // ✅ Enable CORS (Frontend Connection)
 app.use(cors({
-    origin: "http://localhost:5173", // Allow frontend access
+    origin: "http://localhost:5174", // Allow frontend access
     methods: ["GET", "POST", "PUT", "DELETE", "UPDATE"],
     credentials: true, // Allow cookies if needed
 }));

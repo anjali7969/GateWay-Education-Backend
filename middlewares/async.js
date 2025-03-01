@@ -4,3 +4,5 @@ const asyncHandler = fn => (req, res, next) =>
     Promise.resolve(fn(req, res, next)).catch(next);
 
 module.exports = asyncHandler;
+
+//this has to be a async handler 

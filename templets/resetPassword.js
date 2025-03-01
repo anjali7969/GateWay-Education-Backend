@@ -64,7 +64,7 @@ const ResetPasswordEmail = ({ email, resetLink }) => `
 <body>
   <div class="email-container">
     <div class="email-header">
-      <img src="http://localhost:5000/templates/logo.png" alt="GateWay-Education">
+      <img src="https://drive.google.com/uc?id=1nJRsJW2aKyVtCd2U4xjzXTarY0iShhno" alt="GateWay-Education">
       <h1>Password Reset Request</h1>
     </div>
     <div class="email-body">
