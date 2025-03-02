@@ -22,8 +22,8 @@ const WelcomeEmail = ({ name }) => `
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     .email-header {
-      background-color: #2A5593;
-      color: #fff;
+      background-color: #ffffff; /* White background */
+      color: rgb(58, 129, 234); /* Blue text */
       padding: 20px;
       text-align: center;
     }
@@ -36,7 +36,7 @@ const WelcomeEmail = ({ name }) => `
     .email-body h1 {
       font-size: 24px;
       margin-bottom: 10px;
-      color: #2A5593;
+      color: rgb(58, 129, 234);
     }
     .email-body p {
       font-size: 16px;
@@ -46,8 +46,8 @@ const WelcomeEmail = ({ name }) => `
       display: block;
       width: 200px;
       text-align: center;
-      background-color: #2A5593;
-      color: #ffffff;
+      background-color: rgb(58, 129, 234); /* Blue background */
+      color:rgb(255, 255, 255); /* White text */
       text-decoration: none;
       font-size: 16px;
       font-weight: bold;
@@ -67,7 +67,6 @@ const WelcomeEmail = ({ name }) => `
 <body>
   <div class="email-container">
     <div class="email-header">
-      <!-- ✅ Replace this URL with your actual logo URL -->
       <img src="https://drive.google.com/uc?id=1nJRsJW2aKyVtCd2U4xjzXTarY0iShhno" alt="GateWay-Education Logo" width="150">
       <h1>Welcome to GateWay-Education!</h1>
     </div>
@@ -90,6 +89,7 @@ const WelcomeEmail = ({ name }) => `
 `;
 
 module.exports = WelcomeEmail;
+
 
 
 //  Path: templets/WelcomeEmail.js

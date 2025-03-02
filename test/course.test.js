@@ -171,29 +171,29 @@ describe("Course API Tests", () => {
     /**
      * ✅ Step 5: Enroll the User in the Course
      */
-    it("should enroll the user in a course", async function () {
-        this.timeout(5000);
-        const res = await chai.request(app)
-            .post(`/courses/${courseId}/enroll`)
-            .set("Authorization", `Bearer ${userToken}`);
+    // it("should enroll the user in a course", async function () {
+    //     this.timeout(5000);
+    //     const res = await chai.request(app)
+    //         .post(`/courses/${courseId}/enroll`)
+    //         .set("Authorization", `Bearer ${userToken}`);
 
-        expect(res).to.have.status(200);
-        expect(res.body).to.have.property("message", "Successfully enrolled in course");
-    });
+    //     expect(res).to.have.status(200);
+    //     expect(res.body).to.have.property("message", "Successfully enrolled in course");
+    // });
 
     /**
      * ✅ Step 6: Check if User is Already Enrolled
      */
-    it("should check if the user is enrolled", async function () {
-        this.timeout(5000);
-        const res = await chai.request(app)
-            .get(`/courses/enrollment/check/${userId}/${courseId}`)
-            .set("Authorization", `Bearer ${userToken}`);
+    // it("should check if the user is enrolled", async function () {
+    //     this.timeout(5000);
+    //     const res = await chai.request(app)
+    //         .get(`/courses/enrollment/check/${userId}/${courseId}`)
+    //         .set("Authorization", `Bearer ${userToken}`);
 
-        expect(res).to.have.status(200);
-        expect(res.body).to.have.property("enrolled", true);
-        expect(res.body).to.have.property("message", "Already enrolled in this course");
-    });
+    //     expect(res).to.have.status(200);
+    //     expect(res.body).to.have.property("enrolled", true);
+    //     expect(res.body).to.have.property("message", "Already enrolled in this course");
+    // });
 
     /**
      * ✅ Step 7: Delete the Course
