@@ -8,7 +8,7 @@ const ResetPasswordEmail = ({ email, resetLink }) => `
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f9;
+      background-color:rgb(34, 148, 219);
       margin: 0;
       padding: 0;
       color: #333;
@@ -22,11 +22,14 @@ const ResetPasswordEmail = ({ email, resetLink }) => `
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     .email-header {
-      background-color: #9B6763;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
+    background-color: #ffffff; /* White background */
+    color:rgb(58, 129, 234); /* Blue text */
+    padding: 20px;
+    text-align: center;
+  }
+  .email-header h1 {
+    color: rgb(58, 129, 234); /* Ensures the text is blue */
+  }
     .email-header img {
       max-width: 150px;
     }
@@ -36,7 +39,7 @@ const ResetPasswordEmail = ({ email, resetLink }) => `
     .email-body h1 {
       font-size: 24px;
       margin-bottom: 10px;
-      color: #9B6763;
+      color: rgb(58, 129, 234);
     }
     .email-body p {
       font-size: 16px;
@@ -48,8 +51,8 @@ const ResetPasswordEmail = ({ email, resetLink }) => `
       padding: 10px 20px;
       font-size: 16px;
       text-decoration: none;
-      background-color: #9B6763;
-      color: #fff;
+      background-color:rgb(58, 129, 234);
+      color:  #f4f4f9;
       border-radius: 4px;
     }
     .email-footer {
@@ -75,7 +78,7 @@ const ResetPasswordEmail = ({ email, resetLink }) => `
       <p>If you did not request a password reset, please ignore this email or contact us if you have concerns.</p>
     </div>
     <div class="email-footer">
-      <p>&copy; ${new Date().getFullYear()} Nirliptah Yoga by Nivedita Pradhan. All rights reserved.</p>
+      <p>&copy; ${new Date().getFullYear()} Gateway-Education by Anjali Shrestha. All rights reserved.</p>
       <p>[Your Address or Contact Information]</p>
     </div>
   </div>
